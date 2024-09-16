@@ -1,0 +1,418 @@
+/* General styling */
+.main-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Chat Toggle Closed */
+.chat-toggle-closed {
+    width: 60px;
+    height: 60px;
+    background-color: #a3103a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.chat-toggle-closed:hover {
+    transform: scale(1.05);
+}
+
+/* Chat Container */
+.chat-container {
+    width: 392px;
+    height: 558px;
+    background-color: #2c2f33;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Chat Header */
+.chat-header {
+    background-color: #23272a;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-header-content {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.logo-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.close-button {
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-button:hover {
+    color: #a3103a;
+}
+
+/* Chat Box */
+.chat-box {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #2c2f33;
+    overflow: hidden; /* Keep this to prevent overflow issues */
+}
+
+/* Message List */
+.message-list {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    background-color: #2c2f33;
+    border-bottom: 1px solid #3a3d41;
+    display: flex;
+    flex-direction: column; /* Ensure it remains a flex container */
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* Custom Scrollbar */
+.message-list::-webkit-scrollbar {
+    width: 6px; /* Thinner scrollbar */
+    background-color: transparent;
+}
+
+.message-list::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.message-list::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.message-list {
+    scrollbar-width: thin; /* Thinner scrollbar */
+    scrollbar-color: #888 transparent; /* Thumb color and transparent track */
+}
+
+/* Message Input */
+.message-input {
+    display: flex;
+    border-top: 1px solid #3a3d41;
+    background-color: #2c2f33;
+    padding: 10px;
+}
+
+/* Remaining Styling (Buttons, Inputs, etc.) */
+input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: #40444b;
+    color: white;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+button {
+    background-color: #a3103a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: transparent;
+}
+
+/* Placeholder Message */
+.placeholder-message {
+    text-align: center;
+    margin-top: 100px;
+    color: #b9bbbe;
+}
+
+.placeholder-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+/* Messages */
+.message {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.user-icon,
+.ai-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.ai-icon {
+    background-color: #7289da;
+    object-fit: cover;
+}
+
+.message-content {
+    background-color: #40444b;
+    color: #ffffff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    max-width: 75%;
+    position: relative;
+    word-break: break-word;
+}
+
+.message.user .message-content {
+    background-color: transparent;
+    align-self: flex-end;
+}
+
+.copy-icon {
+    position: absolute;
+    bottom: -25px; /* Move the copy button directly underneath the message */
+    right: 0; /* Align it to the right edge of the message */
+    cursor: pointer;
+    color: #b9bbbe;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.copy-icon:hover {
+    color: #ffffff;
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    background-color: #23272a;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+}
+
+/* Typing Indicator */
+.typing-indicator .message-content {
+    background-color: #40444b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 60px;
+    padding: 0;
+}
+
+.typing-dots {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 24px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background-color: #b9bbbe;
+    border-radius: 50%;
+    animation: blink 1.4s infinite both;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0.2;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+
+/* Message Input */
+.message-input {
+    padding: 15px;
+    background-color: #23272a;
+    border-top: 1px solid #2c2f33;
+}
+
+.input-container {
+    position: relative;
+    width: 100%; /* Ensure the container takes full width */
+}
+
+.message-textarea {
+    width: calc(100%); /* Adjust width to account for the button */
+    padding: 12px 50px 12px 15px; /* Extra padding on the right to accommodate the button */
+    border: none;
+    border-radius: 25px;
+    background-color: #40444b;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    resize: none; /* Prevent manual resizing by the user */
+    max-height: 100px; /* Set the maximum height */
+    overflow-y: auto; /* Scroll content inside textarea if it exceeds max height */
+    box-sizing: border-box; /* Include padding in width/height calculation */
+    line-height: 1.5; /* Adjust the line height for readability */
+    transition: height 0.2s ease; /* Smooth transition for height changes */
+}
+
+/* Custom Scrollbar */
+.message-textarea::-webkit-scrollbar {
+    width: 6px; /* Thinner scrollbar */
+    background-color: transparent; /* Transparent background */
+}
+
+.message-textarea::-webkit-scrollbar-thumb {
+    background-color: #888; /* Scrollbar thumb color */
+    border-radius: 10px; /* Rounded scrollbar thumb */
+}
+
+.message-textarea::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Darker thumb color on hover */
+}
+
+/* Firefox scrollbar customization */
+.message-textarea {
+    scrollbar-width: thin; /* Thinner scrollbar */
+    scrollbar-color: #888 transparent; /* Thumb color and transparent track */
+}
+
+.message-textarea:focus {
+    height: auto; /* Allow expansion */
+}
+
+.message-input button {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #b9bbbe;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    transition: color 0.2s;
+}
+
+.message-input button:hover {
+    color: #ffffff;
+}
+
+.message-input button:disabled {
+    color: #4f545c;
+    cursor: not-allowed;
+}
+
+/* Notification Banner */
+.notification-banner {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background-color: #a3103a;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+    cursor: pointer;
+    animation: slideIn 0.5s ease-out, fadeOut 0.5s ease-in 3.5s;
+    z-index: 1100;
+    max-width: 300px;
+    text-align: center;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .chat-container {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        bottom: 0;
+        right: 0;
+        position: fixed;
+        z-index: 1000;
+    }
+
+    .notification-banner {
+        right: 50%;
+        transform: translateX(50%);
+        max-width: 90%;
+        bottom: 80px;
+    }
+}
+

@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default Light Mode */
+:root {
+  --menu-bg: #f3f4f6;
+  --menu-text: #000000;
+  --menu-hover-bg: #e5e7eb;
+  --menu-hover-text: #000000;
+  --menu-active-bg: #3c3c3c;
+  --menu-active-text: #ffffff;
+}
+
+/* Dark Mode */
+:root.dark {
+  --menu-bg: #121212;
+  --menu-text: #e4e4e7;
+  --menu-hover-bg: #1f1f1f;
+  --menu-hover-text: #e4e4e7;
+  --menu-active-bg: #312e81;
+  --menu-active-text: #ffffff;
+}
+
+/* Colored Mode */
+:root.colored {
+  --menu-bg: #1E1B4B;
+  --menu-text: #e4e4e7; /* Ensure colored mode uses the same treatment as dark */
+  --menu-hover-bg: #34495e;
+  --menu-hover-text: #ffffff;
+  --menu-active-bg: #65a30d;
+  --menu-active-text: #ffffff;
+}
+
+/* Sidebar Styling */
+.sidebar-content {
+  background-color: var(--menu-bg);
+  color: var(--menu-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Sidebar Header & Footer */
+.sidebar-header,
+.sidebar-footer {
+  background-color: var(--menu-bg);
+  color: var(--menu-text);
+}
+
+/* Sidebar Items */
+.sidebar-item {
+  background-color: var(--menu-bg);
+  color: var(--menu-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-item:hover {
+  background-color: var(--menu-hover-bg);
+  color: var(--menu-hover-text);
+}
+
+.sidebar-item-active {
+  background-color: var(--menu-active-bg);
+  color: var(--menu-active-text);
+}
+
+/* Notification Bell styles */
+.notification-bell-light {
+  @apply text-black;
+}
+
+.notification-bell-dark {
+  @apply text-white;
+}
+
+.notification-bell-colored {
+  @apply text-yellow-400;
+}
+
+/* Modal overlay styling */
+.modal-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center;
+}
+
+/* Modal content styling for light and dark modes */
+.modal-content {
+  @apply relative w-full max-w-lg p-6 bg-white dark:bg-darkCard rounded-lg shadow-lg;
+  outline: none;
+}
+
+/* Prevent scrollbars */
+.sidebar-content {
+  overflow-y: hidden;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); /* Default for light theme */
+  border-radius: 10px;
+}
+
+/* Dark mode scrollbars */
+:root.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6); /* White scrollbar for dark mode */
+}
+
+/* Editor toolbar component */
+@layer components {
+  .editor-toolbar {
+    @apply flex flex-wrap mb-4;
+  }
+
+  .editor-button {
+    @apply p-2 m-1 border rounded hover:bg-gray-200 dark:hover:bg-gray-700;
+  }
+
+  .editor-content {
+    @apply min-h-[200px] bg-white dark:bg-darkCard p-2 rounded;
+  }
+}
+
+/* Responsive legend text for small sizes */
+.legend-small {
+  font-size: 8px; /* Small size for mobile */
+}
+
+@media (min-width: 640px) {
+  .legend-small {
+    font-size: 10px; /* Slightly larger for small screens */
+  }
+}
+
+@media (min-width: 768px) {
+  .legend-small {
+    font-size: 12px; /* Normal size for medium and larger screens */
+  }
+}
