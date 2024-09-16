@@ -228,4 +228,3 @@ Here are some additional links related to this project:
 - [LinkedIn Profile](https://www.LinkedIn.com/in/keanugms): Connect with the developer on LinkedIn.
 - [Deployed Server](Coming soon): View the deployed server for this project.
 - [Vite Documentation](https://vitejs.dev/guide/): Learn more about Vite, the build tool used in this project.
-```
