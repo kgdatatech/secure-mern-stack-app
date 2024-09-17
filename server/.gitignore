@@ -20,9 +20,9 @@ dist-ssr/
 .env.test.local
 .env.production.local
 
-# # Build directories
-# client/dist/
-# server/client/dist/
+# Build directories
+client/dist/
+server/client/dist/
 
 # Cert directories
 server/certs/

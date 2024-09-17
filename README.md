@@ -91,14 +91,13 @@ You need to set up `.env` files for both the frontend and backend to properly co
    Create a `.env` file in the `client` directory and include the following variables:
 
    ```bash
-   VITE_API_BASE_URL=http://localhost:5000/api
-   VITE_APP_SOCKET_URL=wss://localhost:5000
-   VITE_STRIPE_PUBLIC_KEY=your-stripe-public-key
-   VITE_GOOGLE_CLIENT_ID=your-google-client-id
-   VITE_APP_RECAPTCHA_SITE_KEY=your-google-recaptcha-site-key
-   VITE_APP_ENABLE_CAPTCHA=true-or-false
-   VITE_APP_OPENAI_KEY=your-openai-api-public-key
-   
+   VITE_API_BASE_URL=http://localhost:5000/api         # API base URL
+   VITE_APP_SOCKET_URL=wss://localhost:5000            # WebSocket URL is fine if not exposing secrets
+   VITE_STRIPE_PUBLIC_KEY=your-stripe-public-key       # Public Stripe key is okay to expose
+   VITE_GOOGLE_CLIENT_ID=your-google-client-id         # Google Client ID (public-facing part)
+   VITE_APP_RECAPTCHA_SITE_KEY=your-google-recaptcha-site-key  # Public-facing key
+   VITE_APP_ENABLE_CAPTCHA=true                        # Feature flag, not sensitive
+  
    ```
 
    Ensure all environment variables start with `VITE_` as this is required by Vite for client-side environment variables.
@@ -108,35 +107,44 @@ You need to set up `.env` files for both the frontend and backend to properly co
    Create a `.env` file in the `server` directory and include the following variables:
 
    ```bash
+   # Environment and server settings
    NODE_ENV=development
-
    PORT=5000
    CLIENT_URL=https://localhost:5173
-   GOOGLE_CALLBACK_URL=https://localhost:5000/api/auth/google/callback
-   MONGO_URI=mongodb+srv://
 
+   # Database
+   MONGO_URI=mongodb+srv://<your-mongo-credentials>
+
+   # Authentication secrets
    JWT_SECRET=your_jwt_secret
    ACCESS_TOKEN_SECRET=your_access_token_secret
    REFRESH_TOKEN_SECRET=your_refresh_token_secret
    ACCESS_TOKEN_EXPIRATION=15m
    REFRESH_TOKEN_EXPIRATION=7d
 
+   # Email settings
    SMTP_HOST=smtp.gmail.com
    SMTP_PORT=587
    EMAIL=yourbusinessemail@gmail.com
    EMAIL_PASSWORD=your-secure-password
 
+   # OAuth (Google)
    GOOGLE_CLIENT_ID=yourID.apps.googleusercontent.com
    GOOGLE_CLIENT_SECRET=GOCSPX-yourID
 
+   # Security and session management
    CSRF_SECRET=your_csrf_secret
    ADMIN_SECRET_KEY=your_admin_secret_key
    SESSION_SECRET=your-session-secret
-   RECAPTCHA_SECRET_KEY=your-recaptcha-site-key
 
+   # reCAPTCHA (secret key)
+   RECAPTCHA_SECRET_KEY=your-recaptcha-secret-key
+
+   # Stripe (Stripe secret keys)
    STRIPE_SECRET_KEY=sk_test_your-stripe-secret-key
    STRIPE_WEBHOOK_SECRET_PROD=whsec_your-stripe-webhook
    STRIPE_WEBHOOK_SECRET_DEV=whsec_your-stripe-webhook
+
    ```
 
    Adjust these variables as per your setup. Make sure to keep your `.env` files secure and avoid committing them to version control.
