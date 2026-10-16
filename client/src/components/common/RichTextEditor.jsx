@@ -2,20 +2,15 @@ import React from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Image from '@tiptap/extension-image';
-import Link from '@tiptap/extension-link';
 import TextAlign from '@tiptap/extension-text-align';
-import Table from '@tiptap/extension-table';
-import TableRow from '@tiptap/extension-table-row';
-import TableCell from '@tiptap/extension-table-cell';
-import TableHeader from '@tiptap/extension-table-header';
+import { Table, TableRow, TableCell, TableHeader } from '@tiptap/extension-table';
 import { FaBold, FaItalic, FaUnderline, FaListUl, FaListOl, FaQuoteRight, FaImage, FaTable, FaAlignCenter, FaAlignLeft, FaAlignRight } from 'react-icons/fa';
 
 const RichTextEditor = ({ content, setContent }) => {
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      StarterKit, // v3 StarterKit includes Link and Underline
       Image,
-      Link,
       TextAlign.configure({
         types: ['heading', 'paragraph'],
       }),
